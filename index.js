@@ -23,8 +23,8 @@ client.on('message', message => {
         `I have no socks on`,
         `jonny not johny`,
         `Fuck off Xig`,
+        `Xig is the worst fucking Mod`
     ]
-
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
@@ -49,7 +49,8 @@ client.on('message', message => {
         const embed = new Discord.MessageEmbed()
             .setTitle('Server Info')
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "htts://discordbots.org/bot/513875565447741440")
-            .setColor(0xFF0000)
+            .addField(`${message.guild.name}`)
+            .setColor(0xFF0000)``
             .setTimestamp()
         message.channel.send(embed);
     }
@@ -60,12 +61,19 @@ client.on('message', message => {
         }
         message.channel.send("Yes")
     }
+    if (message.content.toLowerCase().startsWith(PREFIX + "eval")) {
+        const embed = new Discord.MessageEmbed()
+        .setTitle(`${message.author.tag}'s Avatar`)
+        .setImage(message.author.displayAvatarURL())
+    }
+
 
     if (message.content.toLowerCase().startsWith(PREFIX + "xignotic")) {
         message.channel.send("Fuck you Xignotic")
     }
+    let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
-        message.channel.send(`${responses}`)
+        message.channel.send(`${txt}`)
     }
 })
 
