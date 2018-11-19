@@ -42,7 +42,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
-        return message.channel.send(`${PREFIX}help \n${PREFIX}serverinfo \n${PREFIX}ping \n${PREFIX}jonny \n${PREFIX} [Question?]`);
+        return message.channel.send(`${PREFIX}help \n${PREFIX}serverinfo \n${PREFIX}ping \n${PREFIX}jonny \n${PREFIX} [Question?]\n ${PREFIX}vote \n ${PREFIX}invite`);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
@@ -77,6 +77,9 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "invite")) {
        return message.channel.send("Here's your invite link neckass \n https://discordapp.com/oauth2/authorize?client_id=513875565447741440&permissions=8&scope=bot");
     }
+    if (message.content.toLowerCase().startsWith(PREFIX + "vote")) {
+        return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
+     }
     let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         message.channel.send(`${txt}`)
