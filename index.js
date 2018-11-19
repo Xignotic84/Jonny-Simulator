@@ -14,7 +14,7 @@ client.on('error', error => {
 client.on('message', message => {
     const responses = [
         `Fuck off ${message.author}`,
-        `Why do you have to bully me ${message.author}`,
+        `Why do you have to bully me ${message.author} <a:sad:493973165865697291>`,
         `Ken is gay`,
         `Who wants to be on my headpat list`,
         `I hate children`,
@@ -26,7 +26,13 @@ client.on('message', message => {
         `Xig is the worst fucking Mod`,
         `This is a fucking uwu server only ${message.author}`,
         `JoJo is the best`,
-        `Neckass`
+        `Neckass`,
+        `no bullying Dream`,
+        `Unless you wanna be removed from the list, ${message.author}`,
+        `yes`,
+        `false`,
+        `Shame you're not cool ${message.author}`,
+        `You're not getting a headpat this christmas ${message.author}`
     ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
