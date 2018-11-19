@@ -30,11 +30,11 @@ client.on('message', message => {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
 
-    if (message.content.toLowerCase().endsWith("?")) {
+    if (message.content.toLowerCase().startsWith(PREFIX) && message.content.toLowerCase().endsWith("?")) {
         return message.channel.send("Do I look like Support to you?")
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "ping")) {
-        return message.channel.send(client.ping);
+        return message.channel.send(`PONG ${client.ping}`);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "jonny")) {
@@ -49,7 +49,6 @@ client.on('message', message => {
         const embed = new Discord.MessageEmbed()
             .setTitle('Server Info')
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "htts://discordbots.org/bot/513875565447741440")
-
             .setColor(0xFF0000)
             .setTimestamp()
         message.channel.send(embed);
