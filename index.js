@@ -14,7 +14,7 @@ client.on('error', () => {
 client.on('message', message => {
     const responses = [
         `Fuck off ${message.author}`,
-        `Why do you have to bully me ${message.autor}`,
+        `Why do you have to bully me ${message.author}`,
         `Ken is gay`,
         `Who wants to be on my headpat list`,
         `I hate children`,
@@ -31,7 +31,7 @@ client.on('message', message => {
     if (message.author.bot) return;
 
     if (message.content.toLowerCase().startsWith(PREFIX) && message.content.toLowerCase().endsWith("?")) {
-        return message.channel.send("Do I look like Support to you?")
+        return message.channel.send("Do I look like Support to you?");
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "ping")) {
         return message.channel.send(`PONG ${client.ping}`);
@@ -42,7 +42,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
-        message.channel.send(`${prefix}help \n ${prefix}serverinfo \n ${prefix}ping \n ${prefix}jonny \n ${prefix} [Question?]`)
+        return message.channel.send(`${PREFIX}help \n${PREFIX}serverinfo \n${PREFIX}ping \n${PREFIX}jonny \n${PREFIX} [Question?]`);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
@@ -56,15 +56,16 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "eval")) {
-        if (!message.author.id === OWNER) {
-            return message.channel.send("You don't own me you neckass")
+        if (message.author.id !== OWNER) {
+            return message.channel.send("You don't own me you neckass");
         }
-        message.channel.send("Yes")
+        return message.channel.send("You own me but you're an idiot");
     }
-    if (message.content.toLowerCase().startsWith(PREFIX + "eval")) {
+    if (message.content.toLowerCase().startsWith(PREFIX + "avatar")) {
         const embed = new Discord.MessageEmbed()
-        .setTitle(`${message.author.tag}'s Avatar`)
-        .setImage(message.author.displayAvatarURL())
+            .setTitle(`${message.author.tag}'s Avatar`)
+            .setImage(message.author.displayAvatarURL({ size: 2048 }))
+        return message.channel.send(embed);
     }
 
 
