@@ -23,7 +23,10 @@ client.on('message', message => {
         `I have no socks on`,
         `jonny not johny`,
         `Fuck off Xig`,
-        `Xig is the worst fucking Mod`
+        `Xig is the worst fucking Mod`,
+        `This is a fucking uwu server only ${message.author}`,
+        `JoJo is the best`,
+        `Neckass`
     ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
