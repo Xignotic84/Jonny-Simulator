@@ -11,7 +11,7 @@ const responses = [
     `stop with the fucking jonny jonny yes papas smh`,
     `I have no socks on`,
     `jonny not johny`,
-    `Fuck of Xig`
+    `Fuck off Xig`
 ]
 
 
