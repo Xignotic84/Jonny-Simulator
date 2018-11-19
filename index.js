@@ -8,7 +8,7 @@ client.on('ready', () => {
 });
 
 client.on('error', () => {
-    console.log(`${error}`)
+    console.log(error)
 });
 
 client.on('message', message => {
@@ -52,7 +52,6 @@ client.on('message', message => {
             .addField("Server ID", message.guild.id, true)
             .addField("Creation Date", message.guild.createdAt.toUTCString())
             .addField("Bot Join Date", message.guild.joinedAt.toUTCString())
-            .setColor(0xFF0000)
             .setTimestamp()
         return message.channel.send(embed);
     }
@@ -67,12 +66,13 @@ client.on('message', message => {
         const embed = new Discord.MessageEmbed()
             .setTitle(`${message.author.tag}'s Avatar`)
             .setImage(message.author.displayAvatarURL({ size: 2048 }))
+            .setTimestamp()
         return message.channel.send(embed);
     }
 
 
     if (message.content.toLowerCase().startsWith(PREFIX + "xignotic")) {
-        message.channel.send("Fuck you Xignotic")
+        message.channel.send("Fuck Xignotic, he's the biggest joke on dbl fuckin meme of a kid")
     }
     let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
