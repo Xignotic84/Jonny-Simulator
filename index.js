@@ -24,7 +24,7 @@ client.on('message', message => {
         `jonny not johny`,
         `Fuck off Xig`,
     ]
-    
+
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
@@ -42,7 +42,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
-        message.channel.send("")
+        message.channel.send(`${prefix}help \n ${prefix}serverinfo \n ${prefix}ping \n ${prefix}jonny \n ${prefix} [Question?]`)
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
@@ -63,6 +63,9 @@ client.on('message', message => {
 
     if (message.content.toLowerCase().startsWith(PREFIX + "xignotic")) {
         message.channel.send("Fuck you Xignotic")
+    }
+    if (message.content.toLowerCase().startsWith(PREFIX)) {
+        message.channel.send(`${responses}`)
     }
 })
 
