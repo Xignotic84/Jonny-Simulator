@@ -32,7 +32,8 @@ client.on('message', message => {
         `yes`,
         `false`,
         `Shame you're not cool ${message.author}`,
-        `You're not getting a headpat this christmas ${message.author}`
+        `You're not getting a headpat this christmas ${message.author}`,
+        `fax`
     ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
