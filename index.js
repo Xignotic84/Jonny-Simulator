@@ -47,12 +47,14 @@ client.on('message', message => {
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
         const embed = new Discord.MessageEmbed()
-            .setTitle('Server Info')
-            .setAuthor(message.author.tag, message.author.displayAvatarURL(), "htts://discordbots.org/bot/513875565447741440")
-            .addField(`${message.guild.name}`)
-            .setColor(0xFF0000)``
+            .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
+            .addField("Server Name", message.guild.name, true)
+            .addField("Server ID", message.guild.id, true)
+            .addField("Creation Date", message.guild.createdAt.toUTCString())
+            .addField("Bot Join Date", message.guild.joinedAt.toUTCString())
+            .setColor(0xFF0000)
             .setTimestamp()
-        message.channel.send(embed);
+        return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "eval")) {
