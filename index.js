@@ -1,19 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { TOKEN, PREFIX, OWNER } = require('./config.js');
-const responses = [
-    `Fuck off ${message.author}`,
-    `Why do you have to bully me ${message.autor}`,
-    `Ken is gay`,
-    `Who wants to be on my headpat list`,
-    `I hate children`,
-    `No, neckass.`,
-    `stop with the fucking jonny jonny yes papas smh`,
-    `I have no socks on`,
-    `jonny not johny`,
-    `Fuck off Xig`
-]
-
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -25,16 +12,32 @@ client.on('error', () => {
 });
 
 client.on('message', message => {
+    const responses = [
+        `Fuck off ${message.author}`,
+        `Why do you have to bully me ${message.autor}`,
+        `Ken is gay`,
+        `Who wants to be on my headpat list`,
+        `I hate children`,
+        `No, neckass.`,
+        `stop with the fucking jonny jonny yes papas smh`,
+        `I have no socks on`,
+        `jonny not johny`,
+        `Fuck off Xig`,
+    ]
+    
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
 
-    if (message.conente.startswit)
-        if (message.content.startsWith(PREFIX + "ping")) {
-            return message.channel.send(client.ping);
-        }
-    if (message.content.startsWith(PREFIX + "jonny")) {
+    if (message.content.toLowerCase().endsWith("?")) {
+        return message.channel.send("Do I look like Support to you?")
+    }
+    if (message.content.toLowerCase().startsWith(PREFIX + "ping")) {
+        return message.channel.send(client.ping);
+    }
+
+    if (message.content.toLowerCase().startsWith(PREFIX + "jonny")) {
         return message.channel.send("What did you say you cunt?");
     }
 
