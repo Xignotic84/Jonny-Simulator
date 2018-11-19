@@ -39,7 +39,8 @@ client.on('message', message => {
         `Thank you kindly`,
         `Children can we keep it civil kthx`,
         `I was on the phone with Chief, he says this aint it`,
-        `I aint buying that shit game`
+        `I aint buying that shit game`,
+        `My fam are the best`
     ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
@@ -86,16 +87,15 @@ client.on('message', message => {
         return message.channel.send(embed);
     }
 
-
     if (message.content.toLowerCase().startsWith(PREFIX + "xignotic")) {
         message.channel.send("Fuck Xignotic, he's the biggest joke on dbl fuckin meme of a kid")
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "invite")) {
-       return message.channel.send("Here's your invite link neckass \n https://discordapp.com/oauth2/authorize?client_id=513875565447741440&permissions=8&scope=bot");
+        return message.channel.send("Here's your invite link neckass \n https://discordapp.com/oauth2/authorize?client_id=513875565447741440&permissions=8&scope=bot");
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "vote")) {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
-     }
+    }
     let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         message.channel.send(`${txt}`)
