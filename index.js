@@ -74,6 +74,9 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "xignotic")) {
         message.channel.send("Fuck Xignotic, he's the biggest joke on dbl fuckin meme of a kid")
     }
+    if (message.content.toLowerCase().startsWith(PREFIX + "invite")) {
+       return message.channel.send("Here's your invite link neckass \n https://discordapp.com/oauth2/authorize?client_id=513875565447741440&permissions=8&scope=bot");
+    }
     let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         message.channel.send(`${txt}`)
