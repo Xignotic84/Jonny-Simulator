@@ -33,7 +33,13 @@ client.on('message', message => {
         `false`,
         `Shame you're not cool ${message.author}`,
         `You're not getting a headpat this christmas ${message.author}`,
-        `fax`
+        `fax`,
+        `shut`,
+        `Shut the fuck up ${message.author}, Ken says it's my turn to moderate`,
+        `Thank you kindly`,
+        `Children can we keep it civil kthx`,
+        `I was on the phone with Chief, he says this aint it`,
+        `I aint buying that shit game`
     ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
@@ -52,7 +58,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
-        return message.channel.send(`${PREFIX}help \n${PREFIX}serverinfo \n${PREFIX}ping \n${PREFIX}jonny \n${PREFIX} [Question?]\n ${PREFIX}vote \n ${PREFIX}invite`);
+        return message.channel.send(`${PREFIX}help \n${PREFIX}serverinfo \n${PREFIX}ping \n${PREFIX}jonny \n${PREFIX} [Question?]\n${PREFIX}vote \n${PREFIX}invite`);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
