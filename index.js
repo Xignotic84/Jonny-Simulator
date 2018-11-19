@@ -7,7 +7,7 @@ client.on('ready', () => {
     client.user.setActivity(`${client.users.size} idiots`, { type: "WATCHING" });
 });
 
-client.on('error', () => {
+client.on('error', error => {
     console.log(error)
 });
 
