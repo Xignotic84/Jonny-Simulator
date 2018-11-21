@@ -70,7 +70,7 @@ client.on('message', message => {
         `Spamming a bunch of shady files into #general`,
         `Spamming something in #general`
     ]
-    let args = message.content.split(' ').slice(1);
+    let args = args.join(" ");
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
