@@ -125,7 +125,10 @@ client.on('message', message => {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
     }
     let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
-    let user = message.mentions.members.first() || message.guild.members.get(args) || message.guild.members.find(m => m.displayName.toLowerCase().includes(args.toLowerCase()) || m.user.tag.toLowerCase().includes(args.toLowerCase())) || message.author;
+    let user = message.mentions.members.first() || message.guild.members.get(args) || message.guild.members.find(m => m.displayName.toLowerCase().includes(args.toLowerCase()) || m.user.tag.toLowerCase().includes(args.toLowerCase()));
+    if(!user){
+        user = message.author
+    }
     if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
         const embed = new Discord.MessageEmbed()
             .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
