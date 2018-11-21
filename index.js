@@ -125,27 +125,35 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "vote")) {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
     }
-    if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
+    if (message.content.toLowerCase().startsWith(PREFIX + "modlog")) {
+        let cases = [Math.floor(Math.random() * 2)]
+        if (cases == 0) {
+            cases = "Mute | Case#"
+            color = "#ffff00"
+        } else {
+            cases = "Ban | Case#"
+            color = "#ff0000"
+        }
         let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
         let param = args.join(" ");
         let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
         if (!user || !param) {
             const embed = new Discord.MessageEmbed()
-                .setTitle(`Ban | Case #${Math.floor(Math.random() * 10000)}`)
+                .setTitle(`${cases} #${Math.floor(Math.random() * 10000)}`)
                 .addField("User", `${message.author.tag} (${message.author})`, true)
                 .addField("Moderator", "Jonny 絶望#7777", true)
                 .addField("Reason", modtxt)
                 .setTimestamp()
-                .setColor("#ff0000")
+                .setColor(color)
             return message.channel.send(embed);
         }
         const embed = new Discord.MessageEmbed()
-            .setTitle(`Ban | Case #${Math.floor(Math.random() * 10000)}`)
+            .setTitle(`${cases} #${Math.floor(Math.random() * 10000)}`)
             .addField("User", `${user.user.tag} (${user})`, true)
             .addField("Moderator", "Jonny 絶望#7777", true)
             .addField("Reason", modtxt)
             .setTimestamp()
-            .setColor("#ff0000")
+            .setColor(color)
         return message.channel.send(embed);
     }
     if (message.content.toLowerCase().startsWith(PREFIX)) {
