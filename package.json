@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Xignotic84/Jonny-Simulator/issues"
   },
-  "homepage": "https://github.com/Xignotic84/Jonny-Simulator#readme"
+  "homepage": "https://github.com/Xignotic84/Jonny-Simulator#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
 }
