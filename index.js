@@ -131,6 +131,7 @@ client.on('message', message => {
             .addField("Moderator", "Jonny 絶望#7777", true)
             .addField("Reason", modtxt)
             .setTimestamp()
+            .setColor("red")
         return message.channel.send(embed);
     }
     let txt = responses[Math.floor(Math.random() * responses.length)];
