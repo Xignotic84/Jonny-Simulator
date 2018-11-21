@@ -95,6 +95,7 @@ client.on('message', message => {
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
             .addField("Server Name", message.guild.name, true)
             .addField("Server ID", message.guild.id, true)
+            .addField("Member Count", message.guild.size, true)
             .addField("Creation Date", message.guild.createdAt.toUTCString())
             .addField("Bot Join Date", message.guild.joinedAt.toUTCString())
             .setTimestamp()
@@ -125,8 +126,8 @@ client.on('message', message => {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
     }
     let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
-    let user = message.mentions.members.first() || message.guild.members.get(args) || message.guild.members.find(m => m.displayName.toLowerCase().includes(args.toLowerCase()) || m.user.tag.toLowerCase().includes(args.toLowerCase()));
-    if(!user){
+    let user = message.mentions.members.first() || message.guild.members.get(args) || message.guild.members.find(m => m.displayName.toLowerCase().includes(args.toLowerCase()) || m.user.tag.toLowerCase().includes(args.toLowerCase())) || null;
+    if (!user) {
         user = message.author
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
