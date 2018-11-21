@@ -125,8 +125,9 @@ client.on('message', message => {
     }
     let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
     if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
+        let numbers = generateRandomNumber(1, 1000000)
         const embed = new Discord.MessageEmbed()
-            .setTitle(`Ban | Case #${Math.floor(Math.random)}`)
+            .setTitle(`Ban | Case #${Math.floor(numbers)}`)
             .addField("User", `${message.author.tag} (${message.author})`, true)
             .addField("Moderator", "Jonny 絶望#7777", true)
             .addField("Reason", modtxt)
