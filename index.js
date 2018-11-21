@@ -44,7 +44,30 @@ client.on('message', message => {
     ]
     const modlog = [
         `Ads`,
-
+        `Fucking Cunt`,
+        `Neckass wanted to be cool`,
+        `What the heck do you think you're doing`,
+        `underage`,
+        `dm ads`,
+        `hoist ads`,
+        `rhino musicbot as a selfbot`,
+        `Advertising in general`,
+        `Ads in #general`,
+        `bot abuse`,
+        `[Spamming my DMs after being muted above](https://cdn.discordapp.com/attachments/396848636081733632/506510994021941248/unknown.png)`,
+        `ads`,
+        `Ban evasion`,
+        `spamming smh (selfbot idk)`,
+        `Spamming cunt`,
+        `another pin - gonna get a strike soon`,
+        `ban evasion of 'bowling pin', 'bowling pin', 'bowling pin' and 'bowling pin'`,
+        `advertising scam servers to random people in DMs https://i.imgur.com/GRBt5wR.png`,
+        `Just spams bowling pins in chat for a living`,
+        `selfbot`,
+        `Sending invites in General`,
+        `Came into #general speaking French in an insulting manner and refused to stop when told to`,
+        `Spamming a bunch of shady files into #general`,
+        `Spamming something in #general`
     ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
@@ -104,7 +127,7 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
         const embed = new Discord.MessageEmbed()
             .setTitle(`Ban | Case #${math.random}`)
-            .addField("User", `${message.author.tag} (${message.author.tag})`, true)
+            .addField("User", `${message.author.tag} (${message.author})`, true)
             .addField("Moderator", "Jonny 絶望#7777", true)
             .addField("Reason", modtxt)
             .setTimestamp()
