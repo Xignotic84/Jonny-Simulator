@@ -11,6 +11,7 @@ client.on('error', error => {
     console.log(error)
 });
 
+
 client.on('message', message => {
     const responses = [
         `Fuck off ${message.author}`,
@@ -125,14 +126,13 @@ client.on('message', message => {
     }
     let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
     if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
-        let numbers = generateRandomNumber(1, 1000000)
         const embed = new Discord.MessageEmbed()
-            .setTitle(`Ban | Case #${Math.floor(numbers)}`)
+            .setTitle(`Ban | Case #${Math.floor() * 100000}`)
             .addField("User", `${message.author.tag} (${message.author})`, true)
             .addField("Moderator", "Jonny 絶望#7777", true)
             .addField("Reason", modtxt)
             .setTimestamp()
-            .setColor("red")
+            .setColor("#ff0000")
         return message.channel.send(embed);
     }
     let txt = responses[Math.floor(Math.random() * responses.length)];
