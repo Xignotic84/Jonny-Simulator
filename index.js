@@ -131,13 +131,13 @@ client.on('message', message => {
         let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
         if (!user || !param) {
             const embed = new Discord.MessageEmbed()
-            .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
-            .addField("User", `${message.author.tag} (${message.author})`, true)
-            .addField("Moderator", "Jonny 絶望#7777", true)
-            .addField("Reason", modtxt)
-            .setTimestamp()
-            .setColor("#ff0000")
-        return message.channel.send(embed);
+                .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
+                .addField("User", `${message.author.tag} (${message.author})`, true)
+                .addField("Moderator", "Jonny 絶望#7777", true)
+                .addField("Reason", modtxt)
+                .setTimestamp()
+                .setColor("#ff0000")
+            return message.channel.send(embed);
         }
         const embed = new Discord.MessageEmbed()
             .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
