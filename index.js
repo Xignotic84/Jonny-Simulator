@@ -131,7 +131,7 @@ client.on('message', message => {
         let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
         if (!user || !param) {
             const embed = new Discord.MessageEmbed()
-                .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
+                .setTitle(`Ban | Case #${Math.floor(Math.random() * 10000)}`)
                 .addField("User", `${message.author.tag} (${message.author})`, true)
                 .addField("Moderator", "Jonny 絶望#7777", true)
                 .addField("Reason", modtxt)
@@ -140,7 +140,7 @@ client.on('message', message => {
             return message.channel.send(embed);
         }
         const embed = new Discord.MessageEmbed()
-            .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
+            .setTitle(`Ban | Case #${Math.floor(Math.random() * 10000)}`)
             .addField("User", `${user.user.tag} (${user})`, true)
             .addField("Moderator", "Jonny 絶望#7777", true)
             .addField("Reason", modtxt)
