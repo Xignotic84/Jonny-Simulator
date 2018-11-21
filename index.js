@@ -41,7 +41,8 @@ client.on('message', message => {
         `Children can we keep it civil kthx`,
         `I was on the phone with Chief, he says this aint it`,
         `I aint buying that shit game`,
-        `My fam are the best`
+        `My fam are the best`,
+        `I don't have a Chinese accent`
     ]
     const modlog = [
         `Ads`,
@@ -68,7 +69,13 @@ client.on('message', message => {
         `Sending invites in General`,
         `Came into #general speaking French in an insulting manner and refused to stop when told to`,
         `Spamming a bunch of shady files into #general`,
-        `Spamming something in #general`
+        `Spamming something in #general`,
+        `Keeps bringing up the fact he's waiting for his bot to be approved and spamming emotes in #general`,
+        `DM ads, I think`,
+        `Accomplice of above case`,
+        `Mute Evading`,
+        `Asking for star reactions to get on #starboard`
+
     ]
     let args = message.content.split(' ').slice(2);
     if (!message.content.startsWith(PREFIX)) return;
@@ -158,7 +165,7 @@ client.on('message', message => {
     }
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         let txt = responses[Math.floor(Math.random() * responses.length)];
-        message.channel.send(`${txt}`)
+            message.channel.send(`${txt}`)
     }
 })
 
