@@ -42,6 +42,10 @@ client.on('message', message => {
         `I aint buying that shit game`,
         `My fam are the best`
     ]
+    const modlog = [
+        `Ads`,
+
+    ]
     let args = message.content.split(' ').slice(1);
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
@@ -95,6 +99,16 @@ client.on('message', message => {
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "vote")) {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
+    }
+    let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
+    if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
+        const embed = new Discord.MessageEmbed()
+            .setTitle(`Ban | Case #${math.random}`)
+            .addField("User", `${message.author.tag} (${message.author.tag})`, true)
+            .addField("Moderator", "Jonny 絶望#7777", true)
+            .addField("Reason", modtxt)
+            .setTimestamp()
+        return message.channel.send(embed);
     }
     let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
