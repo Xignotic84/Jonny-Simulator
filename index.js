@@ -70,7 +70,7 @@ client.on('message', message => {
         `Spamming a bunch of shady files into #general`,
         `Spamming something in #general`
     ]
-    let args = message.content.split(' ').slice(1);
+    let args = message.content.split(' ').slice(2);
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -125,13 +125,20 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "vote")) {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
     }
-    let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
-    let param = args.join(" ");
-    let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
-    if (!user) {
-        user = message.author
-    }
     if (message.content.toLowerCase().startsWith(PREFIX + "ban")) {
+        let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
+        let param = args.join(" ");
+        let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
+        if (!user || !param) {
+            const embed = new Discord.MessageEmbed()
+            .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
+            .addField("User", `${message.author.tag} (${message.author})`, true)
+            .addField("Moderator", "Jonny 絶望#7777", true)
+            .addField("Reason", modtxt)
+            .setTimestamp()
+            .setColor("#ff0000")
+        return message.channel.send(embed);
+        }
         const embed = new Discord.MessageEmbed()
             .setTitle(`Ban | Case #${Math.floor(Math.random() * 100000)}`)
             .addField("User", `${user.user.tag} (${user})`, true)
@@ -141,8 +148,8 @@ client.on('message', message => {
             .setColor("#ff0000")
         return message.channel.send(embed);
     }
-    let txt = responses[Math.floor(Math.random() * responses.length)];
     if (message.content.toLowerCase().startsWith(PREFIX)) {
+        let txt = responses[Math.floor(Math.random() * responses.length)];
         message.channel.send(`${txt}`)
     }
 })
