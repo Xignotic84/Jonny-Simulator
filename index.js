@@ -135,13 +135,13 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "modlog")) {
         let cases = [Math.floor(Math.random() * 3)]
         if (cases == 0) {
-            cases = "Mute | Case#"
+            cases = "Mute | Case"
             color = "#E1AE0B"
         } else if(cases == 1){
-            cases = "Ban | Case#"
+            cases = "Ban | Case"
             color = "#ff0000"
         }else {
-            cases = "Kick | Case#"
+            cases = "Kick | Case"
             color = "#E1AE0B"
         }
         let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
