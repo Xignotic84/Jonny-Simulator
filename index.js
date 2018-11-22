@@ -193,7 +193,7 @@ client.on('message', message => {
         return message.channel.send(embed);
     }
 
-    if (message.author.id === "205680187394752512") {
+    if (message.author.id === "257521982021566464") {
         let dream = dreamresponses[Math.floor(Math.random()* dreamresponses.length)];
         return message.channel.send(dream);
     }
