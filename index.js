@@ -97,7 +97,17 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
-        return message.channel.send(`${PREFIX}help \n${PREFIX}serverinfo \n${PREFIX}ping \n${PREFIX}jonny \n${PREFIX} [Question?]\n${PREFIX}vote \n${PREFIX}invite`);
+        const embed = new Discord.MessageEmbed()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
+            .addField(`${PREFIX}help`, "Sends this message")
+            .addField(`${PREFIX}modlog`, "Sends a mod-log case")
+            .addField(`${PREFIX}invite`, "Sends the invite link")
+            .addField(`${PREFIX}git`, "Sends the git link")
+            .addField(`${PREFIX}ping`, "Sends ping")
+            .addField(`${PREFIX}jonny`)
+            .addField(`${PREFIX}[question/text]`)
+            .setTimestamp()
+        return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
@@ -105,7 +115,7 @@ client.on('message', message => {
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
             .addField("Server Name", message.guild.name, true)
             .addField("Server ID", message.guild.id, true)
-            .addField("Member Count", message.guild.size, true)
+            .addField("Member Count", message.guild.memberCount, true)
             .addField("Creation Date", message.guild.createdAt.toUTCString())
             .addField("Bot Join Date", message.guild.joinedAt.toUTCString())
             .setTimestamp()
