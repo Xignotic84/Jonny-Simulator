@@ -194,7 +194,7 @@ client.on('message', message => {
     }
 
     if (message.author.id === "205680187394752512") {
-        let dream = responses[Math.floor(Math.random()* dreamresponses.length)]
+        let dream = responses[Math.floor(Math.random()* dreamresponses.length)];
         return message.channel.send(dream);
     }
 
