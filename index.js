@@ -126,24 +126,28 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "xignotic")) {
         message.channel.send("Fuck Xignotic, he's the biggest joke on dbl fuckin meme of a kid")
     }
+
     if (message.content.toLowerCase().startsWith(PREFIX + "invite")) {
         return message.channel.send("Here's your invite link neckass \n https://discordapp.com/oauth2/authorize?client_id=513875565447741440&permissions=8&scope=bot");
     }
+
     if (message.content.toLowerCase().startsWith(PREFIX + "vote")) {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
     }
+
     if (message.content.toLowerCase().startsWith(PREFIX + "modlog")) {
         let cases = [Math.floor(Math.random() * 3)]
         if (cases == 0) {
             cases = "Mute | Case"
             color = "#E1AE0B"
-        } else if(cases == 1){
+        } else if (cases == 1) {
             cases = "Ban | Case"
             color = "#ff0000"
-        }else {
+        } else {
             cases = "Kick | Case"
             color = "#E1AE0B"
         }
+
         let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
         let param = args.join(" ");
         let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
@@ -166,6 +170,7 @@ client.on('message', message => {
             .setColor(color)
         return message.channel.send(embed);
     }
+    
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         let txt = responses[Math.floor(Math.random() * responses.length)];
         message.channel.send(`${txt}`)
