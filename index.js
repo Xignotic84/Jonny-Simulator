@@ -136,7 +136,7 @@ client.on('message', message => {
         let cases = [Math.floor(Math.random() * 2)]
         if (cases == 0) {
             cases = "Mute | Case#"
-            color = "#ffff00"
+            color = "#E1AE0B"
         } else {
             cases = "Ban | Case#"
             color = "#ff0000"
@@ -165,7 +165,7 @@ client.on('message', message => {
     }
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         let txt = responses[Math.floor(Math.random() * responses.length)];
-            message.channel.send(`${txt}`)
+        message.channel.send(`${txt}`)
     }
 })
 
