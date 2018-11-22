@@ -75,7 +75,6 @@ client.on('message', message => {
         `Accomplice of above case`,
         `Mute Evading`,
         `Asking for star reactions to get on #starboard`
-
     ]
     let args = message.content.split(' ').slice(2);
     if (!message.content.startsWith(PREFIX)) return;
@@ -91,6 +90,10 @@ client.on('message', message => {
 
     if (message.content.toLowerCase().startsWith(PREFIX + "jonny")) {
         return message.channel.send("What did you say you cunt?");
+    }
+
+    if(message.content.toLowerCase().startsWith(PREFIX + "Git")) {
+        return message.channel.send("https://github.com/Xignotic84/Jonny-Simulator");
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
@@ -170,7 +173,7 @@ client.on('message', message => {
             .setColor(color)
         return message.channel.send(embed);
     }
-    
+
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         let txt = responses[Math.floor(Math.random() * responses.length)];
         message.channel.send(`${txt}`)
