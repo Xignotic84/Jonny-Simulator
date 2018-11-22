@@ -194,7 +194,7 @@ client.on('message', message => {
         return message.channel.send(embed);
     }
 
-    if (message.author.id === 257521982021566464) {
+    if (message.author.id === "257521982021566464") {
         let dream = responses[Math.floor(Math.random()* dreamresponses.length)]
         return message.channel.send(dream);
     }
