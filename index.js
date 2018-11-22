@@ -133,13 +133,16 @@ client.on('message', message => {
         return message.channel.send("Yeah you better fucking vote for me \n https://discordbots.org/bot/513875565447741440");
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "modlog")) {
-        let cases = [Math.floor(Math.random() * 2)]
+        let cases = [Math.floor(Math.random() * 3)]
         if (cases == 0) {
             cases = "Mute | Case#"
             color = "#E1AE0B"
-        } else {
+        } else if(cases == 1){
             cases = "Ban | Case#"
             color = "#ff0000"
+        }else {
+            cases = "Kick | Case#"
+            color = "#E1AE0B"
         }
         let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
         let param = args.join(" ");
