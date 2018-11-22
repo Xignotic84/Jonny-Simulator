@@ -92,7 +92,7 @@ client.on('message', message => {
         return message.channel.send("What did you say you cunt?");
     }
 
-    if(message.content.toLowerCase().startsWith(PREFIX + "Git")) {
+    if (message.content.toLowerCase().startsWith(PREFIX + "git")) {
         return message.channel.send("https://github.com/Xignotic84/Jonny-Simulator");
     }
 
