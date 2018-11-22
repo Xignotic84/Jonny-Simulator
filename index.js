@@ -83,8 +83,7 @@ client.on('message', message => {
         `uwu Dream`,
         `*hugs dream*`,
         `hi dream`,
-        `dream is a qt`,
-        ``
+        `dream is a qt`
     ]
     let args = message.content.split(' ').slice(2);
     if (!message.content.startsWith(PREFIX)) return;
@@ -194,7 +193,7 @@ client.on('message', message => {
         return message.channel.send(embed);
     }
 
-    if (message.author.id === "257521982021566464") {
+    if (message.author.id === "205680187394752512") {
         let dream = responses[Math.floor(Math.random()* dreamresponses.length)]
         return message.channel.send(dream);
     }
