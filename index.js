@@ -76,6 +76,16 @@ client.on('message', message => {
         `Mute Evading`,
         `Asking for star reactions to get on #starboard`
     ]
+    const dreamresponses = [
+        `Ily dream`,
+        `Take care Dream`, 
+        `Gn`,
+        `uwu Dream`,
+        `*hugs dream*`,
+        `hi dream`,
+        `dream is a qt`,
+        ``
+    ]
     let args = message.content.split(' ').slice(2);
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
@@ -182,6 +192,11 @@ client.on('message', message => {
             .setTimestamp()
             .setColor(color)
         return message.channel.send(embed);
+    }
+
+    if (message.author.id === 257521982021566464) {
+        let dream = responses[Math.floor(Math.random()* dreamresponses.length)]
+        return message.channel.send(dream);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX)) {
