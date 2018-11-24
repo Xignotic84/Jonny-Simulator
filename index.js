@@ -94,7 +94,7 @@ client.on('message', message => {
         return message.channel.send("Do I look like Support to you?");
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "ping")) {
-        return message.channel.send(`PONG ${client.ping}`);
+        return message.channel.send(`PONG ${client.ws.ping}`);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "jonny")) {
