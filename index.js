@@ -94,7 +94,7 @@ client.on('message', message => {
         return message.channel.send("Do I look like Support to you?");
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "ping")) {
-        return message.channel.send(`PONG ${client.ws.ping}`);
+        return message.channel.send(`PONG ${client.ws.ping}ms`);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "jonny")) {
@@ -105,6 +105,15 @@ client.on('message', message => {
         return message.channel.send("https://github.com/Xignotic84/Jonny-Simulator");
     }
 
+    if(message.content.toLocaleLowerCase().startsWith(PREFIX + "stats")) {
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
+        .addField("Server Count", client.guilds.size, true)
+        .addField("User Count", client.users.size, true)
+        .setTimestamp()
+        return message.channel.send(embed);
+    }
+
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
         const embed = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
@@ -113,8 +122,8 @@ client.on('message', message => {
             .addField(`${PREFIX}invite`, "Sends the invite link")
             .addField(`${PREFIX}git`, "Sends the git link")
             .addField(`${PREFIX}ping`, "Sends ping")
-            .addField(`${PREFIX}jonny`)
-            .addField(`${PREFIX}[question/text]`)
+            .addField(`${PREFIX}jonny`, "Yes")
+            .addField(`${PREFIX}[question/text]`, "Returns a response")
             .setTimestamp()
         return message.channel.send(embed);
     }
