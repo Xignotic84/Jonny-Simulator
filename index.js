@@ -43,6 +43,13 @@ client.on('message', message => {
         `I aint buying that shit game`,
         `My fam are the best`,
         `I don't have a Chinese accent`
+        `I'm still telling Ken that you were vulgar`,
+        `Just look at how I treat ${message.author}'s soggy, bitch ass`,
+        `I am a very aggressive person at times`,
+        `Dream is no loser`,
+        `this kid`,
+        `Forgot to add "Appreciate Dream" to that to do list`
+        `too late, you've akready earned a spot on my to do list`
     ]
     const modlog = [
         `Ads`,
