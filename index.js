@@ -63,7 +63,7 @@ client.on('message', message => {
         `my memes look like memes`,
         `I want you to not like me at all ${message.author}`,
         `${message.author}, I get the impression that you don't like me`,
-        `god no`
+        `god no`,
         `lol what hoe <a:sad:493973165865697291>`
     ]
     const modlog = [
