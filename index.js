@@ -54,7 +54,17 @@ client.on('message', message => {
         `Dream is no loser`,
         `this kid`,
         `Forgot to add "Appreciate Dream" to that to do list`,
-        `too late, you've akready earned a spot on my to do list`
+        `too late, you've akready earned a spot on my to do list`,
+        `${message.author} I don't want to be the best mod`,
+        `do it`,
+        `Compliment me all you like`,
+        `I'll step down shall I?`,
+        `expect changes in 3-5 working days`,
+        `my memes look like memes`,
+        `I want you to not like me at all ${message.author}`,
+        `${message.author}, I get the impression that you don't like me`,
+        `god no`
+        `lol what hoe <a:sad:493973165865697291>`
     ]
     const modlog = [
         `Ads`,
@@ -95,7 +105,8 @@ client.on('message', message => {
         `uwu Dream`,
         `*hugs dream*`,
         `hi dream`,
-        `dream is a qt`
+        `dream is a qt`,
+        `Sleep well Dream`
     ]
     let args = message.content.split(' ').slice(2);
     if (!message.content.startsWith(PREFIX)) return;
