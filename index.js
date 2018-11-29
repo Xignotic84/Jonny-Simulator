@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { TOKEN, PREFIX, OWNER, DBLTOKEN } = require('./config.js');
-const DBL = require('dblapi.js'); 
+const DBL = require('dblapi.js');
 const dbl = new DBL(DBLTOKEN);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity(`${client.users.size} idiots`, { type: "WATCHING" });
     dbl.postStats(client.guilds.size)
-    .then(() => console.log("Posted Stats"))
-    .catch(error => console.log(error))
+        .then(() => console.log("Posted Stats"))
+        .catch(error => console.log(error))
 });
 
 client.on('error', error => {
@@ -90,7 +90,7 @@ client.on('message', message => {
     ]
     const dreamresponses = [
         `Ily dream`,
-        `Take care Dream`, 
+        `Take care Dream`,
         `Gn`,
         `uwu Dream`,
         `*hugs dream*`,
@@ -117,18 +117,19 @@ client.on('message', message => {
         return message.channel.send("https://github.com/Xignotic84/Jonny-Simulator");
     }
 
-    if(message.content.toLocaleLowerCase().startsWith(PREFIX + "stats")) {
+    if (message.content.toLocaleLowerCase().startsWith(PREFIX + "stats")) {
         const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
-        .addField("Server Count", client.guilds.size, true)
-        .addField("User Count", client.users.size, true)
-        .setTimestamp()
+            .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
+            .addField("Server Count", client.guilds.size, true)
+            .addField("User Count", client.users.size, true)
+            .setTimestamp()
         return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
         const embed = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
+            .setColor(message.guild.me.displayColor)
             .addField(`${PREFIX}help`, "Sends this message")
             .addField(`${PREFIX}modlog`, "Sends a mod-log case")
             .addField(`${PREFIX}invite`, "Sends the invite link")
@@ -143,6 +144,7 @@ client.on('message', message => {
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
         const embed = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
+            .setColor(message.guild.me.displayColor)
             .addField("Server Name", message.guild.name, true)
             .addField("Server ID", message.guild.id, true)
             .addField("Member Count", message.guild.memberCount, true)
@@ -160,6 +162,7 @@ client.on('message', message => {
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "avatar")) {
         const embed = new Discord.MessageEmbed()
+            .setColor(message.guild.me.displayColor)
             .setTitle(`${message.author.tag}'s Avatar`)
             .setImage(message.author.displayAvatarURL({ size: 2048 }))
             .setTimestamp()
@@ -215,7 +218,7 @@ client.on('message', message => {
     }
 
     if (message.author.id === "257521982021566464") {
-        let dream = dreamresponses[Math.floor(Math.random()* dreamresponses.length)];
+        let dream = dreamresponses[Math.floor(Math.random() * dreamresponses.length)];
         return message.channel.send(dream);
     }
 
