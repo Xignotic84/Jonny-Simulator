@@ -1,10 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { TOKEN, PREFIX, OWNER } = require('./config.js');
+const { TOKEN, PREFIX, OWNER, DBLTOKEN } = require('./config.js');
+const DBL = require('dblapi.js'); 
+const dbl = new DBL(DBLTOKEN);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setActivity(`${client.users.size} idiots`, { type: "WATCHING" });
+    dbl.postStats(client.guilds.size)
+    .then(() => console.log("Posted Stats"))
+    .catch(error => console.log(error))
 });
 
 client.on('error', error => {
