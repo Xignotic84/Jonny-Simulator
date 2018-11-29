@@ -129,16 +129,29 @@ client.on('message', message => {
         return message.channel.send("https://github.com/Xignotic84/Jonny-Simulator");
     }
 
-    if (message.content.toLocaleLowerCase().startsWith(PREFIX + "say")) {
-       return message.channel.send(param);
+    if (message.content.toLowerCase().startsWith(PREFIX + "say")) {
+        return message.channel.send(param);
     }
 
-    if (message.content.toLocaleLowerCase().startsWith(PREFIX + "stats")) {
+    if (message.content.toLowerCase().startsWith(PREFIX + "stats")) {
         const embed = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
+            .setColor(message.guild.me.displayColor)
             .addField("Server Count", client.guilds.size, true)
             .addField("User Count", client.users.size, true)
             .setTimestamp()
+        return message.channel.send(embed);
+    }
+
+    if (message.content.toLowerCase().startsWith(PREFIX + "simulators")) {
+        const embed = new Discord.MessageEmbed()
+            .setTitle("So I am not good enough for you neckass! Fine maybe these bots will fit your needy ass")
+            .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
+            .setColor(message.guild.me.displayColor)
+            .addField("Oliy Simulator", "https://discordbots.org/bot/500954344510980136")
+            .addField("Xiggy Simulator", "https://discordbots.org/bot/510506828031852555")
+            .addField("Spider Simulator", "https://discordbots.org/bot/515668968464187402")
+            .addField("DBL Simulator 2", "https://discordbots.org/bot/513814680662179857")
         return message.channel.send(embed);
     }
 
