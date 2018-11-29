@@ -109,6 +109,7 @@ client.on('message', message => {
         `Sleep well Dream`
     ]
     let args = message.content.split(' ').slice(2);
+    let param = args.join(" ");
     if (!message.content.startsWith(PREFIX)) return;
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -129,7 +130,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLocaleLowerCase().startsWith(PREFIX + "say")) {
-       return message.channel.send(args);
+       return message.channel.send(param);
     }
 
     if (message.content.toLocaleLowerCase().startsWith(PREFIX + "stats")) {
@@ -210,7 +211,6 @@ client.on('message', message => {
         }
 
         let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
-        let param = args.join(" ");
         let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
         if (!user || !param) {
             const embed = new Discord.MessageEmbed()
