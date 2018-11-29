@@ -128,6 +128,10 @@ client.on('message', message => {
         return message.channel.send("https://github.com/Xignotic84/Jonny-Simulator");
     }
 
+    if (message.content.toLocaleLowerCase().startsWith(PREFIX + "say")) {
+       return message.channel.send(args);
+    }
+
     if (message.content.toLocaleLowerCase().startsWith(PREFIX + "stats")) {
         const embed = new Discord.MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
