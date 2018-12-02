@@ -64,7 +64,12 @@ client.on('message', message => {
         `I want you to not like me at all ${message.author}`,
         `${message.author}, I get the impression that you don't like me`,
         `god no`,
-        `lol what hoe <a:sad:493973165865697291>`
+        `lol what hoe <a:sad:493973165865697291>`,
+        `he's one of Ken's guys, I'll let him deal with it`,
+        `Germans just shout shit`,
+        `Difficult`,
+        `${message.author} fuckin sleep`,
+        `a clone is a clone I'm afraid ¯\_(ツ)_/¯`
     ]
     const modlog = [
         `Ads`,
@@ -187,7 +192,23 @@ client.on('message', message => {
         if (message.author.id !== OWNER) {
             return message.channel.send("You don't own me you neckass");
         }
-        return message.channel.send("You own me but you're an idiot");
+        try {
+            let codein = args.join(" ");
+            let code = eval(codein);
+
+            if (typeof code !== 'string')
+                code = require('util').inspect(code, { depth: 0 });
+            let embed = new Discord.MessageEmbed()
+                .setAuthor(message.author.tag, message.author.displayAvatarURL, "https://discordbots.org/bot/513875565447741440")
+                .setColor(message.guild.me.displayColor)
+                .addField('Input', `\`\`\`js\n${codein}\`\`\``)
+                .addField('Output', `\`\`\`js\n${code}\n\`\`\``)
+                .setImage(message.guild.iconURL)
+            return message.channel.send(embed)
+        } catch (e) {
+            return message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
+        }
+
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "avatar")) {
         const embed = new Discord.MessageEmbed()
