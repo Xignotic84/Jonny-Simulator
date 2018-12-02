@@ -199,11 +199,10 @@ client.on('message', message => {
             if (typeof code !== 'string')
                 code = require('util').inspect(code, { depth: 0 });
             let embed = new Discord.MessageEmbed()
-                .setAuthor(message.author.tag, message.author.displayAvatarURL, "https://discordbots.org/bot/513875565447741440")
+                .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
                 .setColor(message.guild.me.displayColor)
                 .addField('Input', `\`\`\`js\n${codein}\`\`\``)
                 .addField('Output', `\`\`\`js\n${code}\n\`\`\``)
-                .setImage(message.guild.iconURL)
             return message.channel.send(embed)
         } catch (e) {
             return message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
