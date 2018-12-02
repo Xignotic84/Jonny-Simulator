@@ -195,7 +195,6 @@ client.on('message', message => {
         try {
             let codein = args.join(" ");
             let code = eval(codein);
-
             if (typeof code !== 'string')
                 code = require('util').inspect(code, { depth: 0 });
             let embed = new Discord.MessageEmbed()
