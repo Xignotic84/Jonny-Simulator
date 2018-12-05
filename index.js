@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Client, MessageEmbed } = require('discord.js');
+const client = new Client();
 const { TOKEN, PREFIX, OWNER, DBLTOKEN } = require('./config.js');
 const DBL = require('dblapi.js');
 const dbl = new DBL(DBLTOKEN);
@@ -9,11 +9,11 @@ client.on('ready', () => {
     client.user.setActivity(`${client.users.size} idiots`, { type: "WATCHING" });
     dbl.postStats(client.guilds.size)
         .then(() => console.log("Posted Stats"))
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
 });
 
 client.on('error', error => {
-    console.log(error)
+    console.log(error);
 });
 
 
@@ -116,7 +116,7 @@ client.on('message', message => {
     let args = message.content.split(' ').slice(2);
     let param = args.join(" ");
     if (!message.content.startsWith(PREFIX)) return;
-    if (message.channel.type === 'dm') return;
+    if (!message.guild) return;
     if (message.author.bot) return;
 
     if (message.content.toLowerCase().startsWith(PREFIX) && message.content.toLowerCase().endsWith("?")) {
@@ -139,29 +139,29 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "stats")) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
             .setColor(message.guild.me.displayColor)
             .addField("Server Count", client.guilds.size, true)
             .addField("User Count", client.users.size, true)
-            .setTimestamp()
+            .setTimestamp();
         return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "simulators")) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setTitle("So I am not good enough for you neckass! Fine maybe these bots will fit your needy ass")
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
             .setColor(message.guild.me.displayColor)
             .addField("Oliy Simulator", "https://discordbots.org/bot/500954344510980136")
             .addField("Xiggy Simulator", "https://discordbots.org/bot/510506828031852555")
             .addField("Spider Simulator", "https://discordbots.org/bot/515668968464187402")
-            .addField("DBL Simulator 2", "https://discordbots.org/bot/513814680662179857")
+            .addField("DBL Simulator 2", "https://discordbots.org/bot/513814680662179857");
         return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "help")) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875575447741440")
             .setColor(message.guild.me.displayColor)
             .addField(`${PREFIX}help`, "Sends this message")
@@ -171,12 +171,12 @@ client.on('message', message => {
             .addField(`${PREFIX}ping`, "Sends ping")
             .addField(`${PREFIX}jonny`, "Yes")
             .addField(`${PREFIX}[question/text]`, "Returns a response")
-            .setTimestamp()
+            .setTimestamp();
         return message.channel.send(embed);
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "serverinfo")) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
             .setColor(message.guild.me.displayColor)
             .addField("Server Name", message.guild.name, true)
@@ -184,7 +184,7 @@ client.on('message', message => {
             .addField("Member Count", message.guild.memberCount, true)
             .addField("Creation Date", message.guild.createdAt.toUTCString())
             .addField("Bot Join Date", message.guild.joinedAt.toUTCString())
-            .setTimestamp()
+            .setTimestamp();
         return message.channel.send(embed);
     }
 
@@ -197,23 +197,23 @@ client.on('message', message => {
             let code = eval(codein);
             if (typeof code !== 'string')
                 code = require('util').inspect(code, { depth: 0 });
-            let embed = new Discord.MessageEmbed()
+            let embed = new MessageEmbed()
                 .setAuthor(message.author.tag, message.author.displayAvatarURL(), "https://discordbots.org/bot/513875565447741440")
                 .setColor(message.guild.me.displayColor)
                 .addField('Input', `\`\`\`js\n${codein}\`\`\``)
-                .addField('Output', `\`\`\`js\n${code}\n\`\`\``)
-            return message.channel.send(embed)
+                .addField('Output', `\`\`\`js\n${code}\n\`\`\``);
+            return message.channel.send(embed);
         } catch (e) {
             return message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
         }
 
     }
     if (message.content.toLowerCase().startsWith(PREFIX + "avatar")) {
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
             .setColor(message.guild.me.displayColor)
             .setTitle(`${message.author.tag}'s Avatar`)
             .setImage(message.author.displayAvatarURL({ size: 2048 }))
-            .setTimestamp()
+            .setTimestamp();
         return message.channel.send(embed);
     }
 
@@ -230,7 +230,7 @@ client.on('message', message => {
     }
 
     if (message.content.toLowerCase().startsWith(PREFIX + "modlog")) {
-        let cases = [Math.floor(Math.random() * 3)]
+        let cases = [Math.floor(Math.random() * 3)];
         if (cases == 0) {
             cases = "Mute | Case"
             color = "#E1AE0B"
@@ -242,7 +242,7 @@ client.on('message', message => {
             color = "#E1AE0B"
         }
 
-        let modtxt = modlog[Math.floor(Math.random() * modlog.length)]
+        let modtxt = modlog[Math.floor(Math.random() * modlog.length)];
         let user = message.mentions.members.first() || message.guild.members.get(param) || message.guild.members.find(m => m.displayName.toLowerCase().includes(param.toLowerCase()) || m.user.tag.toLowerCase().includes(param.toLowerCase())) || null;
         if (!user || !param) {
             const embed = new Discord.MessageEmbed()
@@ -271,7 +271,7 @@ client.on('message', message => {
 
     if (message.content.toLowerCase().startsWith(PREFIX)) {
         let txt = responses[Math.floor(Math.random() * responses.length)];
-        message.channel.send(`${txt}`)
+        message.channel.send(`${txt}`);
     }
 })
 
