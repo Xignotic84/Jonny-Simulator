@@ -273,6 +273,6 @@ client.on('message', message => {
         let txt = responses[Math.floor(Math.random() * responses.length)];
         message.channel.send(`${txt}`);
     }
-})
+});
 
 client.login(TOKEN);
