@@ -54,7 +54,7 @@ client.on('message', message => {
         `Dream is no loser`,
         `this kid`,
         `Forgot to add "Appreciate Dream" to that to do list`,
-        `too late, you've akready earned a spot on my to do list`,
+        `too late, you've already earned a spot on my to do list`,
         `${message.author} I don't want to be the best mod`,
         `do it`,
         `Compliment me all you like`,
